@@ -4,7 +4,6 @@ pub use crate::cryption::*;
 use magic_crypt::{new_magic_crypt, MagicCryptTrait};
 
 fn main() {
-    println!("Hello, world!");
     //cryption::crypting::decrypt();
     //cryption::crypting::encrypt();
 
