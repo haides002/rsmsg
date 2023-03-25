@@ -1,4 +1,4 @@
-pub mod Crypting {
+pub mod crypting {
     pub fn decrypt() {
         todo!();
     }
