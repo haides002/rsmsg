@@ -9,8 +9,6 @@ fn main() {
     println!("Hello, world!");
     cryption::crypting::decrypt();
     cryption::crypting::encrypt();
-    cryption::crypting::decrypt();
-    cryption::crypting::encrypt();
 
     // https://docs.rs/chacha20poly1305/latest/chacha20poly1305/
     
