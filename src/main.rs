@@ -1,15 +1,15 @@
 mod cryption;
 mod io;
+mod chat_handler;
 pub use crate::cryption::*;
 pub use crate::io::*;
+pub use crate::chat_handler::*;
 
 fn main() {
+    const KEY: &str = "uwu";
     const SEPARATOR: &str = "\\([seperator])\\";
     let messages = get_messages_from_file("chat.txt");
-    for msg in messages {
-        //println!("'{}'", msg);
-        println!("{}\n", decrypt("uwu", &msg));
-    }
+    print!("{:?}", decrypt_messages(messages,KEY));
 
     // let message = "Zxmon\nHello World!";
     // let encrypted_message = cryption::encrypt("uwu", message);
