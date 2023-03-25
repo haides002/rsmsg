@@ -6,7 +6,6 @@ use magic_crypt::{new_magic_crypt, MagicCryptTrait};
 fn main() {
     //cryption::crypting::decrypt();
     //cryption::crypting::encrypt();
-
     
     let crypt_algorithm = new_magic_crypt!("UwU", 256);
     let base64 = crypt_algorithm.encrypt_bytes_to_base64("Rawr");
