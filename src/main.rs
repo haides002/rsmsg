@@ -7,12 +7,10 @@ use chacha20poly1305::{
 
 fn main() {
     println!("Hello, world!");
-<<<<<<< HEAD
     cryption::crypting::decrypt();
     cryption::crypting::encrypt();
-=======
-    cryption::Crypting::decrypt();
-    cryption::Crypting::encrypt();
+    cryption::crypting::decrypt();
+    cryption::crypting::encrypt();
 
     // https://docs.rs/chacha20poly1305/latest/chacha20poly1305/
     
@@ -27,7 +25,6 @@ fn main() {
         ciphertext,
         String::from_utf8_lossy(&plaintext)
     );
->>>>>>> 29c4788d403af837b8ddb2aeebacc49d0b3dfeeb
     // what do we need?
     // 1. skill
     // 2. dummy chat (encrypted) chat should be a list of aes encrypted messages
