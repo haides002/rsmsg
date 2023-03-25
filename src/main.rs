@@ -1,5 +1,10 @@
+mod cryption;
+pub use crate::cryption::*;
+
 fn main() {
     println!("Hello, world!");
+    cryption::Crypting::decrypt();
+    cryption::Crypting::encrypt();
     // what do we need?
     // 1. skill
     // 2. dummy chat (encrypted) chat should be a list of aes encrypted messages
