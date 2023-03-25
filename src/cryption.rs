@@ -1,4 +1,3 @@
-
 pub mod Crypting {
     pub fn decrypt() {
         todo!();
