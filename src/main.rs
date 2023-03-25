@@ -5,8 +5,13 @@ use magic_crypt::{new_magic_crypt, MagicCryptTrait};
 
 fn main() {
     println!("Hello, world!");
+<<<<<<< HEAD
     // cryption::crypting::decrypt();
     // cryption::crypting::encrypt();
+=======
+    cryption::crypting::decrypt();
+    cryption::crypting::encrypt();
+>>>>>>> 99f6b769b7051983d6f97bfcbbd4ee88e59f94b2
 
     // https://docs.rs/chacha20poly1305/latest/chacha20poly1305/
     
