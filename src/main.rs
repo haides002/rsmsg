@@ -11,7 +11,7 @@ fn main() {
     
     let crypt_algorithm = new_magic_crypt!("UwU", 256);
     let base64 = crypt_algorithm.encrypt_bytes_to_base64("Rawr");
-    println!("{}", base64);
+    println!("Encrypted: {}", base64);
     assert_eq!("NQ1QnCJtwBLjcDBVdto8xQ==", base64);
     assert_eq!("Rawr", crypt_algorithm.decrypt_base64_to_string(&base64).unwrap());
 
