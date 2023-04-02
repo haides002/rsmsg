@@ -8,9 +8,12 @@ pub use crate::chat_handler::*;
 pub use crate::ui::*;
 
 pub const SEPARATOR: &str = "\\([seperator])\\";
-const KEY: &str = "uwu";
+
+// const KEY: &str = "uwu";
 
 fn main() {
-    let chat = get_chat(KEY);
+    let key = ask_password();
+    let key = key.trim();
+    let chat = get_chat(&key);
     display_messages(&chat);
 }
