@@ -7,11 +7,10 @@ pub use crate::io::*;
 pub use crate::chat_handler::*;
 pub use crate::ui::*;
 
+pub const SEPARATOR: &str = "\\([seperator])\\";
+
 fn main() {
     const KEY: &str = "uwu";
-    const SEPARATOR: &str = "\\([seperator])\\";
-    let messages = get_messages_from_file("chat.txt");
-    let decrypted_messages = decrypt_messages(messages, KEY);
     display_messages(&decrypted_messages);
     
 

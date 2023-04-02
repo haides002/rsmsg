@@ -23,10 +23,7 @@ pub fn save_file(file_name: &str, data: &str) {
     _ = file.flush();
 }
 
-pub fn get_messages_from_file(file_name: &str) -> Vec<String> {
+pub fn get_messages(file_name: &str) -> String {
     let messages: String = read_file(file_name);
-    const SEPARATOR: &str = "\\([seperator])\\";
-    let mut split_messages: Vec<String> = messages.split(SEPARATOR).map(|str| str.trim().to_owned()).collect();
-    _ = split_messages.pop();
-    return split_messages;
+    return messages;
 }
