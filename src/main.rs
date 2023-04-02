@@ -11,7 +11,6 @@ pub const SEPARATOR: &str = "\\([seperator])\\";
 
 fn main() {
     const KEY: &str = "uwu";
-    display_messages(&decrypted_messages);
     
 
     // let message = "Zxmon\nHello World!";

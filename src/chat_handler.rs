@@ -1,7 +1,7 @@
 use crate::*;
 
 pub fn get_chat(key:&str) -> Vec<String> {
-    return cryption::decrypt_messages(
+    return decrypt_messages(
         seperate_messages(
             io::get_messages("chat.txt")), 
         key);
