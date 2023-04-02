@@ -15,5 +15,5 @@ pub fn ask_password() -> String {
     _ = std::io::stdout().flush();
     io::stdin().read_line(&mut password).unwrap();
     _ = clearscreen::clear();
-    password
+    return password.trim().to_string();
 }

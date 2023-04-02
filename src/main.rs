@@ -13,7 +13,6 @@ pub const SEPARATOR: &str = "\\([seperator])\\";
 
 fn main() {
     let key = ask_password();
-    let key = key.trim();
     let chat = get_chat(&key);
     display_messages(&chat);
 }
