@@ -15,4 +15,5 @@ fn main() {
     let key = ask_password();
     let chat = get_chat(&key);
     display_messages(&chat);
+    ui::ask_message();
 }

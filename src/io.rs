@@ -21,6 +21,5 @@ pub fn save_file(file_name: &str, data: &str) {
 }
 
 pub fn get_messages(file_name: &str) -> String {
-    let messages: String = read_file(file_name);
-    return messages;
+    return read_file(file_name);
 }
