@@ -20,3 +20,16 @@ pub fn seperate_messages(messages: String) -> Vec<String> {
     _ = split_messages.pop();
     return split_messages;
 }
+
+pub fn process_message(mut message: String, user: String, key: String) {
+    if false {
+        todo!();
+    }
+    else {
+        // let time = get_time.to_string()
+        let time = String::new();
+        message = format!("---\n{}\n{}\n---\n{}",user,time,message);
+        let return_code = send_message(encrypt(&key,&message));
+        print!("{}", return_code);
+    }
+}

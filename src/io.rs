@@ -23,3 +23,7 @@ pub fn save_file(file_name: &str, data: &str) {
 pub fn get_messages(file_name: &str) -> String {
     return read_file(file_name);
 }
+
+pub fn send_message(message: String) -> String {
+    return "Not implemented yet!".to_string();
+}
