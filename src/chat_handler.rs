@@ -26,7 +26,6 @@ pub fn process_message(mut message: String, user: String, key: String) {
     if false {
         todo!();
     } else {
-        // let time = get_time.to_string()
         let current_time = chrono::Local::now();
         message = format!("---\n{}\n{}\n---\n{}", user, current_time, message);
         let return_code = send_message(encrypt(&key, &message));
