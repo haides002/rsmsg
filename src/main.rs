@@ -12,8 +12,9 @@ pub const SEPARATOR: &str = "\\([seperator])\\";
 // const KEY: &str = "uwu";
 
 fn main() {
-    let key = ask_password();
-    let chat = get_chat(&key);
-    display_messages(&chat);
+    let user = ui::ask_username();
+    let key = ui::ask_password();
+    let chat = chat_handler::get_chat(&key);
+    ui::display_messages(&chat);
     ui::ask_message();
 }

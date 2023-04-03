@@ -39,3 +39,26 @@ pub fn ask_message() -> String {
     io::stdin().read_line(&mut new_message).unwrap();
     return new_message;
 }
+
+pub fn ask_username() -> String {
+    let username_message = "Enter your username: ";
+    // Get terminal size
+    let (width, height) = term_size::dimensions().unwrap();
+    // clear the screen
+    _ = clearscreen::clear();
+    // get the username
+    let mut username = String::new();
+    for _ in 0..(height/2) {
+        println!("");
+    }
+    if !(width/2 < username_message.len()) {
+        for _ in 0..(width/2 - username_message.len()) {
+            print!(" ");
+        }
+    }
+    print!("{}", username_message);
+    _ = std::io::stdout().flush();
+    io::stdin().read_line(&mut username).unwrap();
+    _ = clearscreen::clear();
+    return username.trim().to_string();
+}
