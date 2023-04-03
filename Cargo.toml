@@ -6,4 +6,5 @@ edition = "2021"
 [dependencies]
 clearscreen = "2.0.0"
 magic-crypt = "3.1.12"
+term_size = "0.3.2"
     
