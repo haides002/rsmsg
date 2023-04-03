@@ -17,14 +17,14 @@ pub fn ask_password() -> String {
     _ = clearscreen::clear();
     // get the password
     let mut password = String::new();
-    for _ in 0..(height/2) {
+    for _ in 0..(height / 2) {
         println!("");
     }
-    if !(width/2 < password_message.len()) {
-        for _ in 0..(width/2 - password_message.len()) {
+    if !(width / 2 < password_message.len()) {
+        for _ in 0..(width / 2 - password_message.len()) {
             print!(" ");
         }
-    } 
+    }
     print!("{}", password_message);
     _ = std::io::stdout().flush();
     io::stdin().read_line(&mut password).unwrap();
@@ -48,11 +48,11 @@ pub fn ask_username() -> String {
     _ = clearscreen::clear();
     // get the username
     let mut username = String::new();
-    for _ in 0..(height/2) {
+    for _ in 0..(height / 2) {
         println!("");
     }
-    if !(width/2 < username_message.len()) {
-        for _ in 0..(width/2 - username_message.len()) {
+    if !(width / 2 < username_message.len()) {
+        for _ in 0..(width / 2 - username_message.len()) {
             print!(" ");
         }
     }
