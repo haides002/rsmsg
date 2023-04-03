@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+chrono = "0.4.24"
 clearscreen = "2.0.0"
 magic-crypt = "3.1.12"
 term_size = "0.3.2"
