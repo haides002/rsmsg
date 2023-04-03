@@ -1,4 +1,5 @@
 use crate::*;
+use chrono;
 
 pub fn get_chat(key: &str) -> Vec<String> {
     return decrypt_messages(seperate_messages(io::get_messages("chat.txt")), key);
@@ -26,8 +27,8 @@ pub fn process_message(mut message: String, user: String, key: String) {
         todo!();
     } else {
         // let time = get_time.to_string()
-        let time = String::new();
-        message = format!("---\n{}\n{}\n---\n{}", user, time, message);
+        let current_time = chrono::Local::now();
+        message = format!("---\n{}\n{}\n---\n{}", user, current_time, message);
         let return_code = send_message(encrypt(&key, &message));
         print!("{}", return_code);
     }
