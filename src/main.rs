@@ -7,7 +7,7 @@ pub use crate::cryption::*;
 pub use crate::io::*;
 pub use crate::ui::*;
 
-pub const SEPARATOR: &str = "\\([seperator])\\";
+pub const SEPARATOR: &str = "\\(seperator)\\";
 
 // const KEY: &str = "uwu";
 
