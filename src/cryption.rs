@@ -6,7 +6,7 @@ pub fn decrypt(key: &str, to_decrypt: &str) -> String {
     return match decryption_result {
         Ok(dec) => dec,
         Err(_error) => "Could not decrypt. (perhaps bogus data or wrong key)".to_string(),
-    };k
+    };
 }
 
 pub fn encrypt(key: &str, to_encrypt: &str) -> String {
