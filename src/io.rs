@@ -1,7 +1,7 @@
-use std::io::Write;
-use std::{fs, path::Path};
 use std::io::prelude::*;
+use std::io::Write;
 use std::net::TcpStream;
+use std::{fs, path::Path};
 
 pub fn read_file(name: &str) -> String {
     fs::read_to_string(name).expect(&format!("Couldn't read {}", name))
@@ -29,7 +29,7 @@ pub fn get_messages() -> String {
     stream.write_all(request).unwrap();
     let mut response = String::new();
     stream.read_to_string(&mut response).unwrap();
-    let response: Vec<String> = response.split("\n\r\n").map(|f| f.to_string() ).collect();
+    let response: Vec<String> = response.split("\n\r\n").map(|f| f.to_string()).collect();
     let response = &response[1];
     return response.to_owned();
 }

@@ -25,8 +25,7 @@ pub fn seperate_messages(messages: String) -> Vec<String> {
 pub fn process_message(mut message: String, user: &String, key: &String) {
     if message == "\n" {
         return;
-    } 
-    else if message == ":q\n" {
+    } else if message == ":q\n" {
         _ = clearscreen::clear();
         std::process::exit(0);
     } else {
