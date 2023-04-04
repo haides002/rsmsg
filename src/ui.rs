@@ -42,11 +42,8 @@ pub fn ask_message() -> String {
 
 pub fn ask_username() -> String {
     let username_message = "Enter your username: ";
-    // Get terminal size
     let (width, height) = term_size::dimensions().unwrap();
-    // clear the screen
     _ = clearscreen::clear();
-    // get the username
     let mut username = String::new();
     for _ in 0..(height / 2) {
         println!("");
