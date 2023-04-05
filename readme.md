@@ -1,5 +1,5 @@
 # rsmsg
-wow oksizide
+wow oksizide<br>
 [rsmsg](https://github.com/haides002/rsmsg) is a basic terminal messenger client written in rust.
 
 ## Usage
