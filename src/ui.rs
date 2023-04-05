@@ -34,7 +34,7 @@ pub fn ask_password() -> String {
 
 pub fn ask_message() -> String {
     let mut new_message = String::new();
-    print!("msg > ");
+    print!("rsmsg message: ");
     _ = std::io::stdout().flush();
     io::stdin().read_line(&mut new_message).unwrap();
     return new_message;
