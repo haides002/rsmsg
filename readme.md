@@ -1,12 +1,12 @@
 # rsmsg
 wow oksizide
-rsmsg is a basic terminal messenger client written in rust.
+[rsmsg](https://github.com/haides002/rsmsg) is a basic terminal messenger client written in rust.
 
 ## Usage
 1. download [rsmsg_server](https://github.com/haides002/rsmsg_server)
 2. delete the *chat* file in the [rsmsg_server](https://github.com/haides002/rsmsg_server) folder
 3. start [rsmsg_server](https://github.com/haides002/rsmsg_server)
-4. download and start **rsmsg** 
+4. download and start [rsmsg](https://github.com/haides002/rsmsg) 
 5. Enter Username
 6. Enter Password
 7. Share server ip and password with you friends.
