@@ -3,8 +3,11 @@ use std::io::Write;
 use std::net::TcpStream;
 use std::{fs, path::Path};
 
-pub fn read_file(name: &str) -> String {
-    fs::read_to_string(name).expect(&format!("Couldn't read {}", name))
+pub fn read_file(name: &str) -> Result<String, String> {
+    match fs::read_to_string(name) {
+        Ok(data) => Ok(data),
+        Err(_e) => Err(format!("Could not read file: {}", name)),
+    }
 }
 
 pub fn save_file(file_name: &str, data: &str) {
@@ -22,8 +25,23 @@ pub fn save_file(file_name: &str, data: &str) {
     _ = file.flush();
 }
 
+pub fn write_file(name: &str, data: &str) {
+    let mut file = if Path::exists(Path::new(name)) {
+        fs::OpenOptions::new().write(true).open(name).expect(format!("Failed to open file {}", name).as_str())
+    } else {
+        fs::OpenOptions::new()
+            .write(true)
+            .create(true)
+            .open(name)
+            .unwrap()
+    };
+
+    _ = file.write(data.as_bytes());
+    _ = file.flush();
+}
+
 pub fn get_messages() -> String {
-    let mut stream = TcpStream::connect(crate::SERVER).unwrap();
+    let mut stream = TcpStream::connect(crate::SERVER).expect("Could not connect to server, is the server running?");
     let request_string = "GET / HTTP/1.1\r\n";
     let request = request_string.as_bytes();
     stream.write_all(request).unwrap();
