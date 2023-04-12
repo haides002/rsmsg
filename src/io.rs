@@ -27,7 +27,10 @@ pub fn save_file(file_name: &str, data: &str) {
 
 pub fn write_file(name: &str, data: &str) {
     let mut file = if Path::exists(Path::new(name)) {
-        fs::OpenOptions::new().write(true).open(name).expect(format!("Failed to open file {}", name).as_str())
+        fs::OpenOptions::new()
+            .write(true)
+            .open(name)
+            .expect(format!("Failed to open file {}", name).as_str())
     } else {
         fs::OpenOptions::new()
             .write(true)
@@ -41,7 +44,8 @@ pub fn write_file(name: &str, data: &str) {
 }
 
 pub fn get_messages() -> String {
-    let mut stream = TcpStream::connect(crate::SERVER).expect("Could not connect to server, is the server running?");
+    let mut stream = TcpStream::connect(crate::SERVER)
+        .expect("Could not connect to server, is the server running?");
     let request_string = "GET / HTTP/1.1\r\n";
     let request = request_string.as_bytes();
     stream.write_all(request).unwrap();

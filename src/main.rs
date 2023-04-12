@@ -1,13 +1,13 @@
 mod chat_handler;
+mod config_parser;
 mod cryption;
 mod io;
 mod ui;
-mod config_parser;
 pub use crate::chat_handler::*;
+pub use crate::config_parser::*;
 pub use crate::cryption::*;
 pub use crate::io::*;
 pub use crate::ui::*;
-pub use crate::config_parser::*;
 
 pub const SEPARATOR: &str = "\\(seperator)\\";
 pub const SERVER: &str = "127.0.0.1:8000";
@@ -24,7 +24,7 @@ fn main() {
             username
         }
     };
-        
+
     let key: String = ui::ask_password();
 
     loop {
