@@ -32,10 +32,11 @@ fn get_config_path() -> String {
     let config = format!("{}/{}", config, config_name);
     config
 }
+
 #[cfg(target_os = "windows")]
-use home::home_dir;
-use std::path::Path;
 fn get_config_path() -> String {
+    use home::home_dir;
+    use std::path::Path;
     let config_name = "rsmsg.conf";
     let home = &home_dir().expect("Couldn't get home directory");
     let config = Path::join(home, "AppData").join("Roaming").join("rsmsg");
