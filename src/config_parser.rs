@@ -1,21 +1,29 @@
+use std::collections::HashMap;
+
 use crate::io;
 
 pub fn get_username() -> Result<String, String> {
     match io::read_file(&get_config_path()) {
         Ok(data) => {
             let data: Vec<String> = data.split("\n").map(|f| f.to_string()).collect();
-            let username = &data[0]
-                .split("=")
-                .map(|f| f.to_string())
-                .collect::<Vec<String>>()[1];
-            Ok(username.to_owned())
+            let username = data.iter().map(|f| f.split("=").collect::<Vec<&str>>());
+            let mut map = HashMap::new();
+            for i in username {
+                if i.len() == 2 {
+                    map.insert(i[0].to_string(), i[1].to_string());
+                }
+            }
+            if map.contains_key("username") {
+                return Ok(map["username"].to_string());
+            }
+            Err("No username found".to_string())
         }
         Err(e) => Err(e),
     }
 }
 
 pub fn write_username(username: &str) {
-    io::write_file(&get_config_path(), &format!("username={}", username));
+    io::write_file(&get_config_path(), &format!("username={}\n", username));
 }
 
 #[cfg(target_os = "linux")]
