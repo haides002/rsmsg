@@ -1,10 +1,10 @@
 mod chat_handler;
-mod config_parser;
+mod config_handler;
 mod cryption;
 mod io;
 mod ui;
 pub use crate::chat_handler::*;
-pub use crate::config_parser::*;
+pub use crate::config_handler::*;
 pub use crate::cryption::*;
 pub use crate::io::*;
 pub use crate::ui::*;
@@ -16,11 +16,11 @@ pub const SERVER: &str = "127.0.0.1:8000";
 
 fn main() {
     // let user: String = ui::ask_username();
-    let user: String = match config_parser::get_username() {
+    let user: String = match config_handler::get_username() {
         Ok(username) => username,
         Err(_e) => {
             let username = ui::ask_username();
-            config_parser::write_username(&username);
+            config_handler::write_username(&username);
             username
         }
     };
