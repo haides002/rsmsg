@@ -1,8 +1,8 @@
 use crate::*;
 use chrono;
 
-pub fn get_chat(key: &String) -> Vec<String> {
-    return decrypt_messages(seperate_messages(io::get_messages()), &key);
+pub fn get_chat(key: &String, server_ip: &str) -> Vec<String> {
+    return decrypt_messages(seperate_messages(io::get_messages(server_ip)), &key);
 }
 
 pub fn decrypt_messages(encrypted_messages: Vec<String>, key: &str) -> Vec<String> {
@@ -22,7 +22,7 @@ pub fn seperate_messages(messages: String) -> Vec<String> {
     return split_messages;
 }
 
-pub fn process_message(mut message: String, user: &String, key: &String) {
+pub fn process_message(mut message: String, user: &String, key: &String, server_ip: &str) {
     if message == "\n" {
         return;
     } else if message == ":q\n" {
@@ -31,7 +31,7 @@ pub fn process_message(mut message: String, user: &String, key: &String) {
     } else {
         let current_time = chrono::Local::now();
         message = format!("---\n{}\n{}\n---\n{}", user, current_time, message);
-        let return_code = send_message(encrypt(&key, &message));
+        let return_code = send_message(encrypt(&key, &message), server_ip);
         print!("{}", return_code);
     }
 }

@@ -43,8 +43,8 @@ pub fn write_file(name: &str, data: &str) {
     _ = file.flush();
 }
 
-pub fn get_messages() -> String {
-    let mut stream = TcpStream::connect(crate::SERVER)
+pub fn get_messages(server_ip: &str) -> String {
+    let mut stream = TcpStream::connect(server_ip)
         .expect("Could not connect to server, is the server running?");
     let request_string = "GET / HTTP/1.1\r\n";
     let request = request_string.as_bytes();
@@ -56,8 +56,8 @@ pub fn get_messages() -> String {
     return response.to_owned();
 }
 
-pub fn send_message(message: String) -> String {
-    let mut stream = TcpStream::connect(crate::SERVER).unwrap();
+pub fn send_message(message: String, server_ip: &str) -> String {
+    let mut stream = TcpStream::connect(server_ip).unwrap();
     let request_string = format!("POST / HTTP/1.1\r\n\r\n{}", &message);
     let request = request_string.as_bytes();
     stream.write_all(request).unwrap();
