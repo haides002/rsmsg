@@ -8,6 +8,28 @@ pub fn display_messages(messages: &Vec<String>) {
         println!("{}\n", message);
     }
 }
+pub fn ask_ip() -> String {
+    let ip_message = "Enter the ip of the server you want to use: ";
+    // Get terminal size
+    let (width, height) = term_size::dimensions().unwrap();
+    // clear the screen
+    _ = clearscreen::clear();
+    // get the password
+    let mut ip = String::new();
+    for _ in 0..(height / 2) {
+        println!("");
+    }
+    if !(width / 2 < ip_message.len()) {
+        for _ in 0..(width / 2 - ip_message.len()) {
+            print!(" ");
+        }
+    }
+    print!("{}", ip_message);
+    _ = std::io::stdout().flush();
+    io::stdin().read_line(&mut ip).unwrap();
+    _ = clearscreen::clear();
+    return ip.trim().to_string();
+}
 
 pub fn ask_password() -> String {
     let password_message = "Enter your password: ";

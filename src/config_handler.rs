@@ -22,6 +22,26 @@ pub fn get_username() -> Result<String, String> {
     }
 }
 
+pub fn get_server_ip() -> Result<String, String> {
+    match io::read_file(&get_config_path()) {
+        Ok(data) => {
+            let data: Vec<String> = data.split("\n").map(|f| f.to_string()).collect();
+            let server_ip = data.iter().map(|f| f.split("=").collect::<Vec<&str>>());
+            let mut map = HashMap::new();
+            for i in server_ip {
+                if i.len() == 2 {
+                    map.insert(i[0].to_string(), i[1].to_string());
+                }
+            }
+            if map.contains_key("server_ip") {
+                return Ok(map["server_ip"].to_string());
+            }
+            Err("No server_ip found in config".to_string())
+        },
+        Err(e) => Err(e),
+    }
+}
+
 pub fn write_username(username: &str) {
     io::write_file(&get_config_path(), &format!("username={}\n", username));
 }
