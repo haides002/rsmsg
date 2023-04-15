@@ -42,8 +42,8 @@ pub fn get_server_ip() -> Result<String, String> {
     }
 }
 
-pub fn write_username(username: &str) {
-    io::write_file(&get_config_path(), &format!("username={}\n", username));
+pub fn write_config(username: &str, server_ip: &str) {
+    io::write_file(&get_config_path(), &format!("username={}\nserver_ip={}", username, server_ip));
 }
 
 #[cfg(target_os = "linux")]

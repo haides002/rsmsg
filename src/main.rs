@@ -31,6 +31,8 @@ fn main() {
         }
     };
 
+    config_handler::write_config(&user, &server_ip);
+
     let key: String = ui::ask_password();
 
     loop {
