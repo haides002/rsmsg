@@ -49,5 +49,8 @@ fn get_config_path() -> String {
     let home = &home_dir().expect("Couldn't get home directory");
     let config = Path::join(home, "AppData").join("Roaming").join("rsmsg");
     std::fs::create_dir_all(&config).unwrap();
-    return Path::join(&config, config_name).to_str().unwrap().to_string();
+    return Path::join(&config, config_name)
+        .to_str()
+        .unwrap()
+        .to_string();
 }
